@@ -1,0 +1,92 @@
+$primary-color: #1b1d25;
+
+.home
+{
+    background-color: $primary-color;
+    float: left;
+    width: 95%;
+    height: 1600px;
+    color: white;
+}
+
+.main_text
+{
+    width: 80%;
+    height: 400px;
+    background-color: #171b2b;
+    margin: 0 auto;
+}
+
+.main_title, .title_input, .main_content, .content_input, .image_input
+{
+  float: left;
+  clear: both;
+  margin: 20px 20px 5px 20px;
+}
+
+.main_title, .main_content
+{
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.title_input, .content_input
+{
+    background-color: #171b2b;
+    border: none;
+    border-bottom: 4px solid $primary-color;
+    color:white ;
+    height: 40px;
+    width: 40%;
+    font-size: 18px;
+}
+
+.main_value
+{
+    width: 40%;
+    height: 500px;
+    margin-top: 100px;
+    padding-left: 200px;
+    text-align: left;
+    float: left;
+}
+
+.main_value_title
+{
+    width: 60%;
+    font-size: 28px;
+    margin-left: 20px;
+    height: 30px;
+}
+
+.main_value_content
+{
+    width: 60%;
+    height: 200px;
+    margin-left: 20px;
+    word-wrap: break-word;
+}
+
+.main_value_image
+{
+    margin: 100px 0px;
+    padding: 0px 50px;
+    text-align: left;
+    float: left;
+
+    img
+    {
+        margin: 0px 0px;
+    }
+}
+
+.btn_publish
+{
+    margin: 0px auto;
+    width: 300px;
+    height: 100px;
+    border: none;
+    color:white;
+    background-color: blue;
+    font-size: 28px;
+}

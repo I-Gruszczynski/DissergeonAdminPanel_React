@@ -1,0 +1,29 @@
+$primary-color: #252a42;
+$icon-color: #383f64;
+
+.sidebar
+{
+    background-color: $primary-color;
+    float: left;
+    width: 5%;
+    height: 1400px;
+
+    ul
+    {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul > li
+    {
+        margin-top: 30px;
+        color: $icon-color;
+    }
+
+    ul > li > a
+    {
+        text-decoration: none;
+        color: $icon-color;
+    }
+}

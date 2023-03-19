@@ -1,0 +1,14 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Pierwszy artykul",
+      "context": "To jest tekst do pierwszego artykulu i jest on super"
+    },
+    {
+      "id": 2,
+      "title": "Drugi artykul",
+      "context": "To jest tekst do drugiego artykulu i jest on tak fajny jak pierwszy"
+    }
+  ]
+}
