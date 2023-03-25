@@ -81,10 +81,12 @@ const Home = () => {
             <button className='btn_publish'>OPUBLIKUJ ARTYKUŁ</button>
             <button onClick={() => showCount(count+1)}>Licz klikniecia</button>
             <p>Ilosc klikniec {count}</p>
-            <div>
+            {/*
+                <div>
                 {isPending && <div>Loading...</div>}
                 {articles && <BlogList blogs={articles} title="All Blogs!"/>}
             </div>
+            */}
         </div>
         
     );
