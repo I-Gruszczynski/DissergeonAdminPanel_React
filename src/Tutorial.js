@@ -9,8 +9,11 @@ const Tutorial = () => {
     const [isPending, pending] = useState(true);
 
         useEffect(() =>{
+
+            const abortCont = new AbortController();
+
             setTimeout(()=>{
-                fetch("http://localhost:8000/articles")
+                fetch("http://localhost:8000/articles", {signal: abortCont.signal})
                 .then (function(res){
                     return res.json();
                 })
@@ -23,6 +26,8 @@ const Tutorial = () => {
                     console.log(err.message);
                 })
             }, 2000);
+
+            return() => abortCont.abort();
         });
 
     return ( 

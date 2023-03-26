@@ -40,7 +40,6 @@ const Home = () => {
                     return res.json();
                 })
                 .then (data =>{
-                    console.log(data);
                     showArticle(data);
                     pending(false);
                 })
