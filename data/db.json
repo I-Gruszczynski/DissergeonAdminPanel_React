@@ -9,6 +9,26 @@
       "id": 2,
       "title": "Drugi artykul",
       "context": "To jest tekst do drugiego artykulu i jest on tak fajny jak pierwszy"
+    },
+    {
+      "title": "cos",
+      "context": "dobry dzien",
+      "id": 3
+    },
+    {
+      "title": "testowy tytul",
+      "context": "Z młodszym bratem \nKtoś zgubił sadeg\nNa 1000 reakcji wysyłam do losowego kom",
+      "id": 4
+    },
+    {
+      "title": "useNavigation",
+      "context": "Powinno mnie przekierowac do listy blogow",
+      "id": 7
+    },
+    {
+      "title": "useNavigation again",
+      "context": "Teraz powinno przekierowac",
+      "id": 8
     }
   ]
 }
