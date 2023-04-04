@@ -6,7 +6,9 @@ const BlogDetalis = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8000/articles/" + id)
+    fetch(
+      "http://localhost:8081/phpmyadmin/index.php?route=/sql&pos=0&db=articlesystem&table=acticles"
+    )
       .then(function (res) {
         return res.json();
       })
@@ -18,9 +20,12 @@ const BlogDetalis = () => {
   const { id } = useParams();
 
   const deleteClick = () => {
-    fetch("http://localhost:8000/articles/" + id, {
-      method: "DELETE",
-    }).then(() => {
+    fetch(
+      "http://localhost:8081/phpmyadmin/index.php?route=/sql&pos=0&db=articlesystem&table=acticles",
+      {
+        method: "DELETE",
+      }
+    ).then(() => {
       navigate("/tutorial");
     });
   };

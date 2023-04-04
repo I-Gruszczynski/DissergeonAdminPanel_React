@@ -19,6 +19,7 @@ function App() {
           <Route path="/tutorial" element={<Tutorial />} />
           <Route path="/blog/:id" element={<BlogDetalis />} />
           <Route path="/create" element={<Create />} />
+          <Route path="/showarticle" element={<showArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
