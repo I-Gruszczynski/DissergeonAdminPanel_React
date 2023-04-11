@@ -6,6 +6,7 @@ import Create from "./Create";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Tutorial from "./Tutorial";
 import BlogDetalis from "./BlogDetails";
+import ImageUpload from "./ImageUpload";
 import NotFound from "./NotFound";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogDetalis />} />
           <Route path="/create" element={<Create />} />
           <Route path="/showarticle" element={<showArticle />} />
+          <Route path="/imageUpload" element={<ImageUpload />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

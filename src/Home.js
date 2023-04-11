@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Home.scss";
-import BlogList from "./BlogList";
 import axios from "axios";
+import ImageUpload from "./ImageUpload";
+import Uploady from "@rpldy/uploady";
+import UploadButton from "@rpldy/upload-button";
+import UploadPreview from "@rpldy/upload-preview";
 
 const Home = () => {
   /*const express = require("express");
@@ -36,14 +39,31 @@ const Home = () => {
 
   const [isPending, pending] = useState(true);
 
+  const [isSending, sending] = useState(true);
+
   const [data, setArticle] = useState({
     title: "",
     context: "",
-    image: null,
   });
+
+  const [dataImage, setArticleImage] = useState("");
 
   const handleChange = (e) => {
     setArticle({ ...data, [e.target.name]: e.target.value });
+    console.log(data);
+  };
+
+  const handleChangeImage = (e) => {
+    //setArticleImage(dataImage, e.target.files[0]);
+    //console.log(e.target.files);
+    //let files = e.target.files;
+    //let reader = new FileReader();
+    //reader.readAsDataURL(files[0]);
+    //reader.onload = (e) => {
+    //console.log("img data", e.target.result);
+    //};
+    setArticleImage({ dataImage, [e.target.name]: e.target.files[0].name });
+    console.log(dataImage);
   };
 
   const submitForm = (e) => {
@@ -51,27 +71,22 @@ const Home = () => {
     const sendArticle = {
       title: data.title,
       context: data.context,
-      image: data.image,
+      image: dataImage,
     };
 
-    console.log(sendArticle);
-
     axios
-      .post(
-        "http://localhost:8081/react_conn/database_insert.php",
-        sendArticle,
-        {
-          headers: {
-            "Content-Type": sendArticle.type,
-          },
-        }
-      )
+      .post("http://localhost:8081/react_conn/database_insert.php", sendArticle)
       .then((result) => {
+        console.log(result);
         if (result.status == "Invalid") {
           alert("Invalid User");
         } else {
-          console.log("Przesłano");
-          console.log(sendArticle);
+          setTimeout(() => {
+            sending(true);
+            console.log("Przesłano");
+            console.log("Tekst: " + sendArticle.image);
+          }, 1000);
+          sending(false);
         }
       });
   };
@@ -122,9 +137,10 @@ const Home = () => {
             type="file"
             placeholder="Wybierz obraz"
             className="image_input"
-            onChange={handleChange}
-            value={data.image}
+            name="image"
+            onChange={handleChangeImage}
           />
+          <ImageUpload />
         </div>
 
         <div className="main_value">
@@ -135,23 +151,25 @@ const Home = () => {
         </div>
         <div className="main_value_image">
           <h2>Zdjęcie:</h2>
-          {data.image && (
+          {dataImage[0] && (
             <img
               alt="not found"
               width={"600px"}
               className="main_value_image"
-              src={URL.createObjectURL(data.image)}
+              src={URL.createObjectURL(dataImage[0])}
             />
           )}
         </div>
         <div style={{ clear: "both" }}></div>
-        <input
-          type="submit"
-          name="submit"
-          value="OPUBLIKUJ ARTYKUŁ"
-          className="btn_publish"
-          disabled={submitForm.isSubmitting}
-        />
+        {!isSending && <p>Przesyłanie...</p>}
+        {isSending && (
+          <input
+            type="submit"
+            name="submit"
+            value="OPUBLIKUJ ARTYKUŁ"
+            className="btn_publish"
+          />
+        )}
       </form>
     </div>
   );
